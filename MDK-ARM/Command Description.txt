@@ -1,0 +1,39 @@
+Here is the command which is sent by the computer
+C denote command
+
+CM + 1/2 +(string)number      number is 3 bit       for example CM1001  set left speed "1"
+	to set the motor speed, 1 is left motor, 2 is right motor
+
+CL + 1/2/3/4 +(string)number
+	to set the LED on the STM32 board, 0 is off, 1 is on
+	
+CA + X/Y/Z/A 
+	to get the value of accelemeter in x-axis,y-axis or z-axis or all three values.  
+
+CC+ X/Y/Z/A
+	to get the value of COMPASS in x-axis,y-axis or z-axis or all three values. 
+	
+CG+ X/Y/Z/A
+	to get the value of Gyro in x-axis,y-axis or z-axis or all three values.
+	
+CI+ C/A/G + SPEED Level + accuracy
+	init compass/acc/gyro  the command is following:
+					speed level													accuracy
+		C: 1/2/3/4/5/6/7/8 : 0.75/1.5/3/7.5/15/30/75/220Hz			1/2/3/4/5/6/7: 1.3/1.9/2.5/4.0/4.7/5.6/8.1gauss
+		A: 1/2/3/4/5/6/7/8/9 : 1/10/25/50/100/200/400/1620/1244Hz			1/2/3/4 : 2g/4g/8g/16g
+		G: 		1/2/3/4 : unknown											1/2/3 : 250/500/2000dps
+
+CS+(string)number 3bit
+	set the time(in ms) of reporting IMU infomation
+
+Here is the receive format on the computer
+use readByte function
+Gyro
+5 + 2 byte(int16 type)
+6 + 6 byte(int16 type)
+Acc
+1 + 2 byte(int16 type)
+2 + 6 byte(int16 type)
+Compass
+3 + 2 byte(int16 type)
+4 + 6 byte(int16 type)
