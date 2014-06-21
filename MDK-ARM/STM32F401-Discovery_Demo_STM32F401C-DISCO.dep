@@ -391,7 +391,7 @@ I (.\..\..\..\Libraries\CMSIS\Include\core_cmInstr.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cmFunc.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cm4_simd.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x522DF8DB)
-I (.\..\stm32f4xx_conf.h)(0x5379CC22)
+I (..\..\Demonstration\stm32f4xx_conf.h)(0x5379CC22)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x52317A22)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x522DF8E2)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x522DF8E2)
@@ -838,7 +838,7 @@ I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x523
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x522DF8E2)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x522DF8E2)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h)(0x522DF8E2)
-F (.\..\main.c)(0x5396EE79)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I.\..\..\..\Libraries\CMSIS\Include -I.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Class\hid\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc -I.\..\..\..\Utilities\STM32F401-Discovery -I..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\Demonstration-I D:\Keil\ARM\RV31\INC-I D:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.6\Device\Include-DSTM32F401xx -DUSE_STDPERIPH_DRIVER -DSTM32F401xx -DUSE_USB_OTG_FS -DUSE_STM32F401 -DI2S_INTERRUPT -o .\stm32f401c-disco\main.o --omf_browse .\stm32f401c-disco\main.crf --depend .\stm32f401c-disco\main.d)
+F (.\..\main.c)(0x53A3D126)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I.\..\..\..\Libraries\CMSIS\Include -I.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Class\hid\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc -I.\..\..\..\Utilities\STM32F401-Discovery -I..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\Demonstration-I D:\Keil\ARM\RV31\INC-I D:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.6\Device\Include-DSTM32F401xx -DUSE_STDPERIPH_DRIVER -DSTM32F401xx -DUSE_USB_OTG_FS -DUSE_STM32F401 -DI2S_INTERRUPT -o .\stm32f401c-disco\main.o --omf_browse .\stm32f401c-disco\main.crf --depend .\stm32f401c-disco\main.d)
 I (..\main.h)(0x53904BB0)
 I (.\..\..\..\Utilities\STM32F401-Discovery\stm32f401_discovery.h)(0x52307506)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x52317A20)
@@ -891,10 +891,12 @@ I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_defines.h)(0x51F7E645)
 I (.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc\usbd_usr.h)(0x51F7E640)
 I (..\usbd_desc.h)(0x5379CC57)
 I (..\usbd_cdc_vcp.h)(0x539066BD)
+I (..\usbd_conf.h)(0x5379D2BB)
 I (..\Utility.h)(0x537C8A16)
-I (..\Motor.h)(0x537C8AB2)
+I (..\Motor.h)(0x53A3D0B8)
 I (..\IMU.h)(0x538ED81C)
 I (..\ADC.h)(0x5396AFBA)
+I (..\stm32f4xx_conf.h)(0x5379CC22)
 F (.\..\system_stm32f4xx.c)(0x538837A3)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I.\..\..\..\Libraries\CMSIS\Include -I.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Class\hid\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc -I.\..\..\..\Utilities\STM32F401-Discovery -I..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\Demonstration-I D:\Keil\ARM\RV31\INC-I D:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.6\Device\Include-DSTM32F401xx -DUSE_STDPERIPH_DRIVER -DSTM32F401xx -DUSE_USB_OTG_FS -DUSE_STM32F401 -DI2S_INTERRUPT -o .\stm32f401c-disco\system_stm32f4xx.o --omf_browse .\stm32f401c-disco\system_stm32f4xx.crf --depend .\stm32f401c-disco\system_stm32f4xx.d)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x52317A20)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cm4.h)(0x51B8A1DD)
@@ -933,7 +935,7 @@ I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h)(0x522DF8E2)
 F (.\..\usb_bsp.c)(0x5379D45D)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I.\..\..\..\Libraries\CMSIS\Include -I.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Class\hid\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc -I.\..\..\..\Utilities\STM32F401-Discovery -I..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\Demonstration-I D:\Keil\ARM\RV31\INC-I D:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.6\Device\Include-DSTM32F401xx -DUSE_STDPERIPH_DRIVER -DSTM32F401xx -DUSE_USB_OTG_FS -DUSE_STM32F401 -DI2S_INTERRUPT -o .\stm32f401c-disco\usb_bsp.o --omf_browse .\stm32f401c-disco\usb_bsp.crf --depend .\stm32f401c-disco\usb_bsp.d)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_bsp.h)(0x51F7E645)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_core.h)(0x51F7E645)
-I (.\..\usb_conf.h)(0x5379CCB9)
+I (..\..\Demonstration\usb_conf.h)(0x5379CCB9)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x52317A20)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cm4.h)(0x51B8A1DD)
 I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
@@ -941,7 +943,7 @@ I (.\..\..\..\Libraries\CMSIS\Include\core_cmInstr.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cmFunc.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cm4_simd.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x522DF8DB)
-I (.\..\stm32f4xx_conf.h)(0x5379CC22)
+I (..\..\Demonstration\stm32f4xx_conf.h)(0x5379CC22)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x52317A22)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x522DF8E2)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x522DF8E2)
@@ -972,11 +974,12 @@ I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_regs.h)(0x51F7E645)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_defines.h)(0x51F7E645)
 I (..\usbd_conf.h)(0x5379D2BB)
 I (.\..\..\..\Utilities\STM32F401-Discovery\stm32f401_discovery.h)(0x52307506)
+I (..\stm32f4xx_conf.h)(0x5379CC22)
 F (.\..\usbd_desc.c)(0x5379D7AE)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I.\..\..\..\Libraries\CMSIS\Include -I.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Class\hid\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc -I.\..\..\..\Utilities\STM32F401-Discovery -I..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\Demonstration-I D:\Keil\ARM\RV31\INC-I D:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.6\Device\Include-DSTM32F401xx -DUSE_STDPERIPH_DRIVER -DSTM32F401xx -DUSE_USB_OTG_FS -DUSE_STM32F401 -DI2S_INTERRUPT -o .\stm32f401c-disco\usbd_desc.o --omf_browse .\stm32f401c-disco\usbd_desc.crf --depend .\stm32f401c-disco\usbd_desc.d)
 I (.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc\usbd_core.h)(0x51F7E640)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_dcd.h)(0x51F7E645)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_core.h)(0x51F7E645)
-I (.\..\usb_conf.h)(0x5379CCB9)
+I (..\..\Demonstration\usb_conf.h)(0x5379CCB9)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x52317A20)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cm4.h)(0x51B8A1DD)
 I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
@@ -984,7 +987,7 @@ I (.\..\..\..\Libraries\CMSIS\Include\core_cmInstr.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cmFunc.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cm4_simd.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x522DF8DB)
-I (.\..\stm32f4xx_conf.h)(0x5379CC22)
+I (..\..\Demonstration\stm32f4xx_conf.h)(0x5379CC22)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x52317A22)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x522DF8E2)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x522DF8E2)
@@ -1014,16 +1017,17 @@ I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h)(0x522DF8E2)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_regs.h)(0x51F7E645)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_defines.h)(0x51F7E645)
 I (.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc\usbd_def.h)(0x51F7E640)
-I (.\..\usbd_conf.h)(0x5379D2BB)
+I (..\..\Demonstration\usbd_conf.h)(0x5379D2BB)
 I (.\..\..\..\Utilities\STM32F401-Discovery\stm32f401_discovery.h)(0x52307506)
 I (..\usbd_desc.h)(0x5379CC57)
 I (.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc\usbd_req.h)(0x51F7E640)
+I (..\usbd_conf.h)(0x5379D2BB)
 F (.\..\usbd_usr.c)(0x5379CC5C)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I.\..\..\..\Libraries\CMSIS\Include -I.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Class\hid\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc -I.\..\..\..\Utilities\STM32F401-Discovery -I..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\Demonstration-I D:\Keil\ARM\RV31\INC-I D:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.6\Device\Include-DSTM32F401xx -DUSE_STDPERIPH_DRIVER -DSTM32F401xx -DUSE_USB_OTG_FS -DUSE_STM32F401 -DI2S_INTERRUPT -o .\stm32f401c-disco\usbd_usr.o --omf_browse .\stm32f401c-disco\usbd_usr.crf --depend .\stm32f401c-disco\usbd_usr.d)
 I (.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc\usbd_usr.h)(0x51F7E640)
 I (.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc\usbd_core.h)(0x51F7E640)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_dcd.h)(0x51F7E645)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_core.h)(0x51F7E645)
-I (.\..\usb_conf.h)(0x5379CCB9)
+I (..\..\Demonstration\usb_conf.h)(0x5379CCB9)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x52317A20)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cm4.h)(0x51B8A1DD)
 I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
@@ -1031,7 +1035,7 @@ I (.\..\..\..\Libraries\CMSIS\Include\core_cmInstr.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cmFunc.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cm4_simd.h)(0x51B8A1DD)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x522DF8DB)
-I (.\..\stm32f4xx_conf.h)(0x5379CC22)
+I (..\..\Demonstration\stm32f4xx_conf.h)(0x5379CC22)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x52317A22)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x522DF8E2)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x522DF8E2)
@@ -1061,10 +1065,10 @@ I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h)(0x522DF8E2)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_regs.h)(0x51F7E645)
 I (.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\usb_defines.h)(0x51F7E645)
 I (.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc\usbd_def.h)(0x51F7E640)
-I (.\..\usbd_conf.h)(0x5379D2BB)
+I (..\..\Demonstration\usbd_conf.h)(0x5379D2BB)
 I (.\..\..\..\Utilities\STM32F401-Discovery\stm32f401_discovery.h)(0x52307506)
 I (.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc\usbd_ioreq.h)(0x51F7E640)
-F (..\stm32fxxx_it.c)(0x5396EF83)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I.\..\..\..\Libraries\CMSIS\Include -I.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Class\hid\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc -I.\..\..\..\Utilities\STM32F401-Discovery -I..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\Demonstration-I D:\Keil\ARM\RV31\INC-I D:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.6\Device\Include-DSTM32F401xx -DUSE_STDPERIPH_DRIVER -DSTM32F401xx -DUSE_USB_OTG_FS -DUSE_STM32F401 -DI2S_INTERRUPT -o .\stm32f401c-disco\stm32fxxx_it.o --omf_browse .\stm32f401c-disco\stm32fxxx_it.crf --depend .\stm32f401c-disco\stm32fxxx_it.d)
+F (..\stm32fxxx_it.c)(0x5396F5EB)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I.\..\..\..\Libraries\CMSIS\Include -I.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Class\hid\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc -I.\..\..\..\Utilities\STM32F401-Discovery -I..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\Demonstration-I D:\Keil\ARM\RV31\INC-I D:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.6\Device\Include-DSTM32F401xx -DUSE_STDPERIPH_DRIVER -DSTM32F401xx -DUSE_USB_OTG_FS -DUSE_STM32F401 -DI2S_INTERRUPT -o .\stm32f401c-disco\stm32fxxx_it.o --omf_browse .\stm32f401c-disco\stm32fxxx_it.crf --depend .\stm32f401c-disco\stm32fxxx_it.d)
 I (..\stm32f4xx_conf.h)(0x5379CC22)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x52317A22)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x52317A20)
@@ -1168,8 +1172,8 @@ I (.\..\..\..\Utilities\STM32F401-Discovery\stm32f401_discovery_l3gd20.h)(0x522E
 I (..\main.h)(0x53904BB0)
 I (D:\Keil\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
 I (..\Utility.h)(0x537C8A16)
-F (..\Motor.c)(0x53927DFA)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I.\..\..\..\Libraries\CMSIS\Include -I.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Class\hid\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc -I.\..\..\..\Utilities\STM32F401-Discovery -I..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\Demonstration-I D:\Keil\ARM\RV31\INC-I D:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.6\Device\Include-DSTM32F401xx -DUSE_STDPERIPH_DRIVER -DSTM32F401xx -DUSE_USB_OTG_FS -DUSE_STM32F401 -DI2S_INTERRUPT -o .\stm32f401c-disco\motor.o --omf_browse .\stm32f401c-disco\motor.crf --depend .\stm32f401c-disco\motor.d)
-I (..\Motor.h)(0x537C8AB2)
+F (..\Motor.c)(0x53A3D0A9)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I.\..\..\..\Libraries\CMSIS\Include -I.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I.\..\..\..\Libraries\STM32_USB_OTG_Driver\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Class\hid\inc -I.\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc -I.\..\..\..\Utilities\STM32F401-Discovery -I..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\Demonstration-I D:\Keil\ARM\RV31\INC-I D:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.6\Device\Include-DSTM32F401xx -DUSE_STDPERIPH_DRIVER -DSTM32F401xx -DUSE_USB_OTG_FS -DUSE_STM32F401 -DI2S_INTERRUPT -o .\stm32f401c-disco\motor.o --omf_browse .\stm32f401c-disco\motor.crf --depend .\stm32f401c-disco\motor.d)
+I (..\Motor.h)(0x53A3D0B8)
 I (.\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x522DF8E2)
 I (.\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x52317A20)
 I (.\..\..\..\Libraries\CMSIS\Include\core_cm4.h)(0x51B8A1DD)

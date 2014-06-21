@@ -1,6 +1,7 @@
 
 #include "Motor.h"
 
+int speed = 0;
 void My_SPI_Init(void){
 		
 		
@@ -74,4 +75,68 @@ void Potentialmeter_SetValue(int value,int chip)
 		default: break;
 	}
 
+}
+
+void My_UD_Init(void){
+	GPIO_InitTypeDef GPIO_InitStructure;
+	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8|GPIO_Pin_9|GPIO_Pin_10;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOD, &GPIO_InitStructure);
+	
+	GPIO_SetBits(GPIOD,GPIO_Pin_8);
+	GPIO_SetBits(GPIOD,GPIO_Pin_9);
+	GPIO_SetBits(GPIOD,GPIO_Pin_10);
+	My_UD_Reset();
+	
+}
+
+void My_UD_Test_Up(void){
+	GPIO_SetBits(GPIOD,GPIO_Pin_8);//INC
+	wait(1);
+	GPIO_SetBits(GPIOD,GPIO_Pin_9);//UP
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_10);//CS select
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_8);
+	wait(5);
+	GPIO_SetBits(GPIOD,GPIO_Pin_8);
+	wait(5);
+	GPIO_SetBits(GPIOD,GPIO_Pin_10);
+	wait(1);
+	speed++;
+	if(speed >64)
+		speed = 64;
+}
+
+void My_UD_Test_Down(void){
+	GPIO_SetBits(GPIOD,GPIO_Pin_8);
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_9);
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_10);
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_8);
+	wait(5);
+	GPIO_SetBits(GPIOD,GPIO_Pin_10);
+	wait(5);
+	GPIO_SetBits(GPIOD,GPIO_Pin_8);
+	wait(1);
+	speed--;
+	if(speed <-64)
+		speed = 64;
+}
+
+void My_UD_Reset(void){
+	int i;
+	for(i = 0;i < 150;i++){
+		My_UD_Test_Down();
+	}
+	for(i = 0;i < 64;i++){
+		My_UD_Test_Up();
+	}
+	speed = 0;
 }

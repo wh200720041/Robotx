@@ -3,21 +3,39 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\IceHan\Desktop\STM32F401-Discovery_FW_V1.0.0\Projects\Demonstration\MDK-ARM\STM32F401-Discovery_Demo.uvproj
+C:\Users\IceHan\Desktop\STM32F401-Discovery_FW_V1.0.0\Projects\Robot_X_Logger\MDK-ARM\STM32F401-Discovery_Demo.uvproj
 Project File Date:  06/10/2014
 
 <h2>Output:</h2>
 Build target 'STM32F401C-DISCO'
-compiling stm32fxxx_it.c...
-..\stm32fxxx_it.c(53): warning:  #177-D: variable "IMU_count" was declared but never referenced
-  static int IMU_count =0;
-..\stm32fxxx_it.c: 1 warning, 0 errors
+compiling main.c...
+..\main.c(185): warning:  #188-D: enumerated type mixed with another type
+                                case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
+..\main.c(185): warning:  #188-D: enumerated type mixed with another type
+                                case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
+..\main.c(135): warning:  #177-D: variable "IMU_Buffer1" was declared but never referenced
+        float IMU_Buffer1[3];
+..\main.c(137): warning:  #177-D: variable "Xval" was declared but never referenced
+    uint8_t Xval, Yval = 0x00;
+..\main.c(137): warning:  #177-D: variable "Yval" was declared but never referenced
+    uint8_t Xval, Yval = 0x00;
+..\main.c(402): warning:  #188-D: enumerated type mixed with another type
+                                case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
+..\main.c(402): warning:  #188-D: enumerated type mixed with another type
+                                case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
+..\main.c(352): warning:  #177-D: variable "Xval" was declared but never referenced
+        uint8_t Xval, Yval = 0x00;
+..\main.c(352): warning:  #177-D: variable "Yval" was declared but never referenced
+        uint8_t Xval, Yval = 0x00;
+..\main.c(355): warning:  #177-D: variable "IMU_Buffer1" was declared but never referenced
+        float IMU_Buffer1[3];
+..\main.c(358): warning:  #177-D: variable "ADC_temp" was declared but never referenced
+        uint32_t ADC_temp = 0;
+..\main.c: 11 warnings, 0 errors
 linking...
-Program Size: Code=20956 RO-data=464 RW-data=432 ZI-data=5024  
+Program Size: Code=19212 RO-data=464 RW-data=436 ZI-data=5028  
 FromELF: creating hex file...
-".\STM32F401C-DISCO\STM32F401C-DISCO.axf" - 0 Error(s), 1 Warning(s).
-</pre>
-</body>
-</html>
-F401C-DISCO\STM32F401C-DISCO.axf" - 1 Error(s), 2 Warning(s).
+".\STM32F401C-DISCO\STM32F401C-DISCO.axf" - 0 Error(s), 11 Warning(s).
+nings, 2 errors
+".\STM32F401C-DISCO\STM32F401C-DISCO.axf" - 2 Error(s), 11 Warning(s).
 Target not created

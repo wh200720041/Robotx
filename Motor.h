@@ -10,4 +10,8 @@
 #define CHIP2 2
 void My_SPI_Init(void);
 void Potentialmeter_SetValue(int value,int chip);
+void My_UD_Test_Up(void);
+void My_UD_Test_Down(void);
+void My_UD_Init(void);
+void My_UD_Reset(void);
 #endif 
