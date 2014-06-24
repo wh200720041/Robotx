@@ -1,7 +1,7 @@
 Here is the command which is sent by the computer
 C denote command
 
-CM + 1/2 +(string)number      number is 3 bit       for example CM1001  set left speed "1"
+CM + L/R + "+/-"(string)number      number is 2 bit       for example CM1001  set left speed "1"
 	to set the motor speed, 1 is left motor, 2 is right motor
 
 CL + 1/2/3/4 +(string)number

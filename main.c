@@ -98,8 +98,8 @@ int main(void)
 		{
 			while(UserButtonPressed==0x00){
 				if(Button_state == BUTTON_STATE_1){ wait(10000);}
-				if(Button_state == BUTTON_STATE_2){ My_UD_Test_Down();STM_EVAL_LEDToggle(LED3);wait(10000);/*run_function1();wait(10000);*/}
-				if(Button_state == BUTTON_STATE_3){ My_UD_Test_Up();STM_EVAL_LEDToggle(LED4);wait(10000);/*run_function2();*/}
+				if(Button_state == BUTTON_STATE_2){ run_function1();wait(100);}
+				if(Button_state == BUTTON_STATE_3){ run_function2();}
 			
 			}
 			wait(1000);
@@ -181,7 +181,16 @@ void run_function1(void){
 											default : break;
 									} 
 									break;
-				case 'M':sum = (buff[3]-'0')*100+(buff[4]-'0')*10+(buff[5]-'0') ;Potentialmeter_SetValue(sum,buff[2]-'0'); break;
+				case 'M':sum = (buff[4]-'0')*10+(buff[5]-'0');
+									if(buff[3]=='-') 
+										sum = 64 - sum;  
+									else if(buff[3]=='+')
+										sum = 64+sum;
+									if(buff[2] == 'L')
+										Potentialmeter_SetValue(sum,CHIP1); 
+									else if(buff[2] == 'R')
+										Potentialmeter_SetValue(sum,CHIP2); 
+									break;
 				case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
 				case 'S': sum = (buff[2]-'0')*100+(buff[3]-'0')*10+(buff[4]-'0') ;Sample_time=sum; break;
 				default :break;				
@@ -398,7 +407,16 @@ void run_function2(void){
 											default : break;
 									} 
 									break;
-				case 'M':sum = (buff[3]-'0')*100+(buff[4]-'0')*10+(buff[5]-'0') ;Potentialmeter_SetValue(sum,buff[2]-'0'); break;
+				case 'M':sum = (buff[4]-'0')*10+(buff[5]-'0');
+									if(buff[3]=='-') 
+										sum = 64 - sum;  
+									else if(buff[3]=='+')
+										sum = 64+sum;
+									if(buff[2] == 'L')
+										Potentialmeter_SetValue(sum,CHIP1); 
+									else if(buff[2] == 'R')
+										Potentialmeter_SetValue(sum,CHIP2); 
+									break;
 				case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
 				case 'S': sum = (buff[2]-'0')*100+(buff[3]-'0')*10+(buff[4]-'0') ;Sample_time=sum; break;
 				default :break;				

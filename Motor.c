@@ -1,7 +1,8 @@
 
 #include "Motor.h"
 
-int speed = 0;
+int left_speed = 0;
+int right_speed = 0;
 void My_SPI_Init(void){
 		
 		
@@ -55,7 +56,7 @@ RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE);
 	GPIO_SetBits(GPIOD,GPIO_Pin_8);
 }
 void Potentialmeter_SetValue(int value,int chip)
-{
+{/*
 	if(value>256)
 		value=255;
 	if(value<0)
@@ -74,13 +75,24 @@ void Potentialmeter_SetValue(int value,int chip)
 		case CHIP2: GPIO_SetBits(GPIOD,GPIO_Pin_8);;break;
 		default: break;
 	}
+*/
+	if(value>128)
+		value=128;
+	if(value<0)
+		value=0;
+	switch(chip){
+		case CHIP1: Set_Left_Speed(value-64);break;
+		case CHIP2: Set_Right_Speed(value-64);break;
+		default: break;
+	}
 
+	
 }
 
 void My_UD_Init(void){
 	GPIO_InitTypeDef GPIO_InitStructure;
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8|GPIO_Pin_9|GPIO_Pin_10;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8|GPIO_Pin_9|GPIO_Pin_10|GPIO_Pin_11;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
@@ -90,11 +102,12 @@ void My_UD_Init(void){
 	GPIO_SetBits(GPIOD,GPIO_Pin_8);
 	GPIO_SetBits(GPIOD,GPIO_Pin_9);
 	GPIO_SetBits(GPIOD,GPIO_Pin_10);
+	GPIO_SetBits(GPIOD,GPIO_Pin_11);
 	My_UD_Reset();
 	
 }
 
-void My_UD_Test_Up(void){
+void My_Left_Speed_Up(void){
 	GPIO_SetBits(GPIOD,GPIO_Pin_8);//INC
 	wait(1);
 	GPIO_SetBits(GPIOD,GPIO_Pin_9);//UP
@@ -107,12 +120,12 @@ void My_UD_Test_Up(void){
 	wait(5);
 	GPIO_SetBits(GPIOD,GPIO_Pin_10);
 	wait(1);
-	speed++;
-	if(speed >64)
-		speed = 64;
+	left_speed++;
+	if(left_speed >64)
+		left_speed = 64;
 }
 
-void My_UD_Test_Down(void){
+void My_Left_Speed_Down(void){
 	GPIO_SetBits(GPIOD,GPIO_Pin_8);
 	wait(1);
 	GPIO_ResetBits(GPIOD,GPIO_Pin_9);
@@ -125,18 +138,84 @@ void My_UD_Test_Down(void){
 	wait(5);
 	GPIO_SetBits(GPIOD,GPIO_Pin_8);
 	wait(1);
-	speed--;
-	if(speed <-64)
-		speed = 64;
+	left_speed--;
+	if(left_speed <-64)
+		left_speed = -64;
 }
 
+void My_Right_Speed_Up(void){
+	GPIO_SetBits(GPIOD,GPIO_Pin_11);//INC
+	wait(1);
+	GPIO_SetBits(GPIOD,GPIO_Pin_9);//UP
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_10);//CS select
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_11);
+	wait(5);
+	GPIO_SetBits(GPIOD,GPIO_Pin_11);
+	wait(5);
+	GPIO_SetBits(GPIOD,GPIO_Pin_10);
+	wait(1);
+	left_speed++;
+	if(right_speed >64)
+		right_speed = 64;
+}
+
+void My_Right_Speed_Down(void){
+	GPIO_SetBits(GPIOD,GPIO_Pin_11);
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_9);
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_10);
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_11);
+	wait(5);
+	GPIO_SetBits(GPIOD,GPIO_Pin_10);
+	wait(5);
+	GPIO_SetBits(GPIOD,GPIO_Pin_11);
+	wait(1);
+	right_speed--;
+	if(right_speed <-64)
+		right_speed = -64;
+}
 void My_UD_Reset(void){
 	int i;
 	for(i = 0;i < 150;i++){
-		My_UD_Test_Down();
+		My_Left_Speed_Down();
 	}
 	for(i = 0;i < 64;i++){
-		My_UD_Test_Up();
+		My_Left_Speed_Up();
 	}
-	speed = 0;
+	left_speed = 0;
+	
+	for(i = 0;i < 150;i++){
+		My_Right_Speed_Down();
+	}
+	for(i = 0;i < 64;i++){
+		My_Right_Speed_Up();
+	}
+	right_speed = 0;
+}
+
+void Set_Left_Speed(int value)
+{
+	int i;
+	int count = value - left_speed;
+	if(count > 0)
+		for(i=0;i<count;i++)
+			My_Left_Speed_Up();
+	else if (count < 0)
+		for(i=count;i<0;i++)
+			My_Left_Speed_Down();
+}
+void Set_Right_Speed(int value)
+{
+	int i;
+	int count = value - right_speed;
+	if(count > 0)
+		for(i=0;i<count;i++)
+			My_Right_Speed_Up();
+	else if (count < 0)
+		for(i=count;i<0;i++)
+			My_Right_Speed_Down();
 }
