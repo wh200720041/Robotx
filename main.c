@@ -72,7 +72,7 @@ int main(void)
   /* Initialize LEDs and User_Button on STM32F4-Discovery --------------------*/
  __IO uint32_t i = 0;  
 	Init_Clock();
-	//My_SPI_Init();
+	My_SPI_Init();
 	
  USBD_Init(&USB_OTG_dev,     
             USB_OTG_FS_CORE_ID, 
@@ -90,15 +90,16 @@ int main(void)
  	STM_EVAL_PBInit(BUTTON_USER, BUTTON_MODE_EXTI); 
 	LSM303DLHC_MEMS_Init();
 	L3GD20_MEMS_Init();
-	My_UD_Init();//init X9C102
+	//My_UD_Init();//init X9C102
 	//My_ADC_Init();
 	//ADC_SoftwareStartConv(ADC1);
   /* Infinite loop */
+	Potentialmeter_SetValue(127,CHIP1);
 		while (1)
 		{
 			while(UserButtonPressed==0x00){
 				if(Button_state == BUTTON_STATE_1){ wait(10000);}
-				if(Button_state == BUTTON_STATE_2){ run_function1();wait(100);}
+				if(Button_state == BUTTON_STATE_2){ run_function1();wait(10000);}
 				if(Button_state == BUTTON_STATE_3){ run_function2();}
 			
 			}
@@ -181,15 +182,39 @@ void run_function1(void){
 											default : break;
 									} 
 									break;
-				case 'M':sum = (buff[4]-'0')*10+(buff[5]-'0');
-									if(buff[3]=='-') 
-										sum = 64 - sum;  
-									else if(buff[3]=='+')
-										sum = 64+sum;
-									if(buff[2] == 'L')
-										Potentialmeter_SetValue(sum,CHIP1); 
-									else if(buff[2] == 'R')
-										Potentialmeter_SetValue(sum,CHIP2); 
+				case 'M':sum =(buff[5]-'0')*100 + (buff[6]-'0')*10+(buff[7]-'0');
+									if(buff[2] == 'P'){//percentage
+										if(sum>100)
+											sum =100;
+										if(sum<0)
+											sum = 0;
+										//convert to steps
+										if(buff[4]=='-') 
+											sum = 100 - sum;  
+										else if(buff[4]=='+')
+											sum = 100 + sum;
+										else 
+											break;
+										sum = sum * 255 / 200;
+										//set the speed
+										if(buff[3] == 'L')
+											Potentialmeter_SetValue(sum,CHIP1); 
+										else if(buff[3] == 'R')
+											Potentialmeter_SetValue(sum,CHIP2); 
+									
+									}else if(buff[2]=='S'){//steps
+										if(sum>255)
+											sum =0;
+										if(sum<0)
+											sum = 0;
+										//buffer4 is no use
+										//set the speed
+										if(buff[3] == 'L')
+											Potentialmeter_SetValue(sum,CHIP1); 
+										else if(buff[3] == 'R')
+											Potentialmeter_SetValue(sum,CHIP2); 
+									}else 
+										break;
 									break;
 				case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
 				case 'S': sum = (buff[2]-'0')*100+(buff[3]-'0')*10+(buff[4]-'0') ;Sample_time=sum; break;
@@ -367,7 +392,7 @@ void run_function2(void){
 	uint32_t ADC_temp = 0;
 	if(VCP_receive_string(buff)){//if receive command
 		if(buff[0]=='C'){
-			Button_state = BUTTON_STATE_1;
+			Button_state = BUTTON_STATE_1;//stop sending message
 			switch(buff[1]){
 				case 'A': 
 								Read_Acc(IMU_Buffer);
@@ -407,15 +432,39 @@ void run_function2(void){
 											default : break;
 									} 
 									break;
-				case 'M':sum = (buff[4]-'0')*10+(buff[5]-'0');
-									if(buff[3]=='-') 
-										sum = 64 - sum;  
-									else if(buff[3]=='+')
-										sum = 64+sum;
-									if(buff[2] == 'L')
-										Potentialmeter_SetValue(sum,CHIP1); 
-									else if(buff[2] == 'R')
-										Potentialmeter_SetValue(sum,CHIP2); 
+				case 'M':sum =(buff[5]-'0')*100 + (buff[6]-'0')*10+(buff[7]-'0');
+									if(buff[2] == 'P'){//percentage
+										if(sum>100)
+											sum =100;
+										if(sum<0)
+											sum = 0;
+										//convert to steps
+										if(buff[4]=='-') 
+											sum = 100 - sum;  
+										else if(buff[4]=='+')
+											sum = 100 + sum;
+										else 
+											break;
+										sum = sum * 255 / 200;
+										//set the speed
+										if(buff[3] == 'L')
+											Potentialmeter_SetValue(sum,CHIP1); 
+										else if(buff[3] == 'R')
+											Potentialmeter_SetValue(sum,CHIP2); 
+									
+									}else if(buff[2]=='S'){//steps
+										if(sum>255)
+											sum =0;
+										if(sum<0)
+											sum = 0;
+										//buffer4 is no use
+										//set the speed
+										if(buff[3] == 'L')
+											Potentialmeter_SetValue(sum,CHIP1); 
+										else if(buff[3] == 'R')
+											Potentialmeter_SetValue(sum,CHIP2); 
+									}else 
+										break;
 									break;
 				case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
 				case 'S': sum = (buff[2]-'0')*100+(buff[3]-'0')*10+(buff[4]-'0') ;Sample_time=sum; break;

@@ -56,8 +56,8 @@ RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE);
 	GPIO_SetBits(GPIOD,GPIO_Pin_8);
 }
 void Potentialmeter_SetValue(int value,int chip)
-{/*
-	if(value>256)
+{
+	if(value>255)
 		value=255;
 	if(value<0)
 		value=0;
@@ -68,16 +68,16 @@ void Potentialmeter_SetValue(int value,int chip)
 	}
 	wait(10);
   while(SPI_I2S_GetFlagStatus(SPI2,SPI_I2S_FLAG_TXE)==RESET);	
-	SPI_SendData(SPI2,0x1100+value);
+	SPI_SendData(SPI2,0x0000+(value));
 	wait(10);
 	switch(chip){
 		case CHIP1: GPIO_SetBits(GPIOB,GPIO_Pin_12);break;
 		case CHIP2: GPIO_SetBits(GPIOD,GPIO_Pin_8);;break;
 		default: break;
 	}
-*/
-	if(value>128)
-		value=128;
+/*
+	if(value>255)
+		value=255;
 	if(value<0)
 		value=0;
 	switch(chip){
@@ -85,7 +85,7 @@ void Potentialmeter_SetValue(int value,int chip)
 		case CHIP2: Set_Right_Speed(value-64);break;
 		default: break;
 	}
-
+*/
 	
 }
 
@@ -142,37 +142,36 @@ void My_Left_Speed_Down(void){
 	if(left_speed <-64)
 		left_speed = -64;
 }
-
 void My_Right_Speed_Up(void){
-	GPIO_SetBits(GPIOD,GPIO_Pin_11);//INC
+	GPIO_SetBits(GPIOD,GPIO_Pin_8);//INC
 	wait(1);
 	GPIO_SetBits(GPIOD,GPIO_Pin_9);//UP
 	wait(1);
-	GPIO_ResetBits(GPIOD,GPIO_Pin_10);//CS select
+	GPIO_ResetBits(GPIOD,GPIO_Pin_11);//CS select
 	wait(1);
-	GPIO_ResetBits(GPIOD,GPIO_Pin_11);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_8);
+	wait(5);
+	GPIO_SetBits(GPIOD,GPIO_Pin_8);
 	wait(5);
 	GPIO_SetBits(GPIOD,GPIO_Pin_11);
-	wait(5);
-	GPIO_SetBits(GPIOD,GPIO_Pin_10);
 	wait(1);
-	left_speed++;
+	right_speed++;
 	if(right_speed >64)
 		right_speed = 64;
 }
 
 void My_Right_Speed_Down(void){
-	GPIO_SetBits(GPIOD,GPIO_Pin_11);
+	GPIO_SetBits(GPIOD,GPIO_Pin_8);
 	wait(1);
 	GPIO_ResetBits(GPIOD,GPIO_Pin_9);
 	wait(1);
-	GPIO_ResetBits(GPIOD,GPIO_Pin_10);
-	wait(1);
 	GPIO_ResetBits(GPIOD,GPIO_Pin_11);
-	wait(5);
-	GPIO_SetBits(GPIOD,GPIO_Pin_10);
+	wait(1);
+	GPIO_ResetBits(GPIOD,GPIO_Pin_8);
 	wait(5);
 	GPIO_SetBits(GPIOD,GPIO_Pin_11);
+	wait(5);
+	GPIO_SetBits(GPIOD,GPIO_Pin_8);
 	wait(1);
 	right_speed--;
 	if(right_speed <-64)
