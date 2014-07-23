@@ -9,33 +9,71 @@ Project File Date:  06/10/2014
 <h2>Output:</h2>
 Build target 'STM32F401C-DISCO'
 compiling main.c...
-..\main.c(219): warning:  #188-D: enumerated type mixed with another type
+..\main.c(221): warning:  #188-D: enumerated type mixed with another type
                                 case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
-..\main.c(219): warning:  #188-D: enumerated type mixed with another type
+..\main.c(221): warning:  #188-D: enumerated type mixed with another type
                                 case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
-..\main.c(136): warning:  #177-D: variable "IMU_Buffer1" was declared but never referenced
+..\main.c(138): warning:  #177-D: variable "IMU_Buffer1" was declared but never referenced
         float IMU_Buffer1[3];
-..\main.c(138): warning:  #177-D: variable "Xval" was declared but never referenced
+..\main.c(140): warning:  #177-D: variable "Xval" was declared but never referenced
     uint8_t Xval, Yval = 0x00;
-..\main.c(138): warning:  #177-D: variable "Yval" was declared but never referenced
+..\main.c(140): warning:  #177-D: variable "Yval" was declared but never referenced
     uint8_t Xval, Yval = 0x00;
-..\main.c(469): warning:  #188-D: enumerated type mixed with another type
+..\main.c(473): warning:  #188-D: enumerated type mixed with another type
                                 case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
-..\main.c(469): warning:  #188-D: enumerated type mixed with another type
+..\main.c(473): warning:  #188-D: enumerated type mixed with another type
                                 case 'L':if(buff[3]=='1') STM_EVAL_LEDOn(buff[2]-'1'); else STM_EVAL_LEDOff(buff[2]-'1'); break;
-..\main.c(386): warning:  #177-D: variable "Xval" was declared but never referenced
+..\main.c(390): warning:  #177-D: variable "Xval" was declared but never referenced
         uint8_t Xval, Yval = 0x00;
-..\main.c(386): warning:  #177-D: variable "Yval" was declared but never referenced
+..\main.c(390): warning:  #177-D: variable "Yval" was declared but never referenced
         uint8_t Xval, Yval = 0x00;
-..\main.c(389): warning:  #177-D: variable "IMU_Buffer1" was declared but never referenced
+..\main.c(393): warning:  #177-D: variable "IMU_Buffer1" was declared but never referenced
         float IMU_Buffer1[3];
-..\main.c(392): warning:  #177-D: variable "ADC_temp" was declared but never referenced
+..\main.c(396): warning:  #177-D: variable "ADC_temp" was declared but never referenced
         uint32_t ADC_temp = 0;
 ..\main.c: 11 warnings, 0 errors
 linking...
-Program Size: Code=21260 RO-data=464 RW-data=432 ZI-data=5024  
+Program Size: Code=20340 RO-data=464 RW-data=436 ZI-data=5028  
 FromELF: creating hex file...
 ".\STM32F401C-DISCO\STM32F401C-DISCO.axf" - 0 Error(s), 11 Warning(s).
 </pre>
 </body>
 </html>
+ing:  #177-D: variable "Xval" was declared but never referenced
+        uint8_t Xval, Yval = 0x00;
+..\main.c(390): warning:  #177-D: variable "Yval" was declared but never referenced
+        uint8_t Xval, Yval = 0x00;
+..\main.c(393): warning:  #177-D: variable "IMU_Buffer1" was declared but never referenced
+        float IMU_Buffer1[3];
+..\main.c(396): warning:  #177-D: variable "ADC_temp" was declared but never referenced
+        uint32_t ADC_temp = 0;
+..\main.c: 11 warnings, 0 errors
+compiling system_stm32f4xx.c...
+compiling usb_bsp.c...
+compiling usbd_desc.c...
+compiling usbd_usr.c...
+compiling stm32fxxx_it.c...
+..\stm32fxxx_it.c(53): warning:  #177-D: variable "IMU_count" was declared but never referenced
+  static int IMU_count =0;
+..\stm32fxxx_it.c: 1 warning, 0 errors
+compiling usbd_cdc_vcp.c...
+..\usbd_cdc_vcp.c(354): warning:  #177-D: function "VCP_COMConfig" was declared but never referenced
+  static uint16_t VCP_COMConfig(uint8_t Conf)
+..\usbd_cdc_vcp.c: 1 warning, 0 errors
+compiling Motor.c...
+compiling Utility.c...
+compiling IMU.c...
+..\IMU.c(341): warning:  #550-D: variable "Magn_Sensitivity_XY" was set but never used
+    uint16_t Magn_Sensitivity_XY = 0, Magn_Sensitivity_Z = 0;
+..\IMU.c(341): warning:  #550-D: variable "Magn_Sensitivity_Z" was set but never used
+    uint16_t Magn_Sensitivity_XY = 0, Magn_Sensitivity_Z = 0;
+..\IMU.c(445): warning:  #550-D: variable "LSM_Acc_Sensitivity" was set but never used
+        float LSM_Acc_Sensitivity = LSM_Acc_Sensitivity_2g;
+..\IMU.c(446): warning:  #550-D: variable "cDivider" was set but never used
+        uint8_t cDivider;
+..\IMU.c: 4 warnings, 0 errors
+compiling ADC.c...
+linking...
+Program Size: Code=20344 RO-data=464 RW-data=436 ZI-data=5028  
+FromELF: creating hex file...
+".\STM32F401C-DISCO\STM32F401C-DISCO.axf" - 0 Error(s), 17 Warning(s).

@@ -85,8 +85,8 @@ int main(void)
  STM_EVAL_LEDInit(LED3);
  STM_EVAL_LEDInit(LED5);
 	
-	STM_EVAL_LEDOn(LED4);
-	STM_EVAL_LEDOn(LED3);
+	//STM_EVAL_LEDOn(LED4);
+	//STM_EVAL_LEDOn(LED3);
  	STM_EVAL_PBInit(BUTTON_USER, BUTTON_MODE_EXTI); 
 	LSM303DLHC_MEMS_Init();
 	L3GD20_MEMS_Init();
@@ -97,6 +97,8 @@ int main(void)
 	Potentialmeter_SetValue(127,CHIP1);
 		while (1)
 		{
+			run_function2();
+			/*
 			while(UserButtonPressed==0x00){
 				if(Button_state == BUTTON_STATE_1){ wait(10000);}
 				if(Button_state == BUTTON_STATE_2){ run_function1();wait(10000);}
@@ -120,7 +122,7 @@ int main(void)
 					//run_function();
 			}
 			wait(1000);	
-			UserButtonPressed = 0x00;		
+			UserButtonPressed = 0x00;		*/
 		}
 		
 	 
@@ -382,6 +384,8 @@ void run_function1(void){
 
 	
 }
+
+uint32_t State2_count =0;
 void run_function2(void){
 	uint8_t Xval, Yval = 0x00;
 	int16_t IMU_Buffer[3];
@@ -473,6 +477,12 @@ void run_function2(void){
 				Button_state = BUTTON_STATE_3;
 		}
 	}
+	State2_count ++;
+	if(State2_count > 200000){
+		State2_count =0;
+		STM_EVAL_LEDToggle(LED4);
+	}
+	
 	/*
 	ADC_temp = ADC3ConvertedValue*3000/0xFFF;
 	if(ADC_temp > 0&&ADC_temp<1000)
